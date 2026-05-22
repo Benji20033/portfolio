@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Benjamin Hill</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Add form-specific styles directly in the head for simplicity and adherence to the task */
+        :root {
+            /* Inherit primary color from styles.css */
+            --primary-color: #113663;
+            --link-hover-color: #004499;
+            --text-color: #333;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; 
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .form-actions button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.3s;
+        }
+
+        .form-actions .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .form-actions .submit-btn:hover {
+            background-color: var(--link-hover-color);
+        }
+
+        .form-actions .clear-btn {
+            background-color: #f1f1f1;
+            color: var(--text-color);
+            border: 1px solid #ccc;
+        }
+
+        .form-actions .clear-btn:hover {
+            background-color: #ddd;
+        }
+        
+        .message-sent-box {
+            margin-top: 40px;
+            padding: 15px;
+            border: 2px dashed #00b300;
+            background-color: #e6ffe6;
+            color: #008000;
+            border-radius: 5px;
+            text-align: center;
+            font-weight: bold;
+            /* Initially hidden */
+            display: none; 
+        }
+
+        .message-content {
+            white-space: pre-wrap; /* Preserve formatting for message content */
+            text-align: left;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #f0fff0;
+            border: 1px solid #c0e0c0;
+            font-weight: normal;
+            color: #333;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="content-wrapper">
+        <h1>Get In Touch</h1>
+
+        <p>Thank you for your interest! If you have any questions about my resume, projects, or just want to connect, please use the contact methods below.</p>
+        
+        <hr>
+        <h2>Send Me a Message</h2>
+
+        <form id="contactForm" action="#" method="POST" class="contact-form">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="priority">Priority Level</label>
+            <select id="priority" name="priority">
+                <option value="Low (General Inquiry)">Low (General Inquiry)</option>
+                <option value="Medium (Project Question)">Medium (Project Question)</option>
+                <option value="High (Immediate Job Opportunity)">High (Immediate Job Opportunity)</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+
+            <div class="form-actions">
+                <button type="button" id="sendMessageBtn" class="submit-btn">Send Message</button>
+                <button type="reset" class="clear-btn">Clear Form</button>
+            </div>
+        </form>
+        
+        <div id="messageSentBox" class="message-sent-box">
+            <p><strong>Message Sent Successfully!</strong></p>
+            <p>I have received your inquiry with the following details:</p>
+            
+            <div id="displayMessage" class="message-content">
+                </div>
+            <button type="button" onclick="window.location.reload()" style="margin-top: 15px; padding: 8px 15px; background-color: #38b44a; color: white; border: none; border-radius: 4px; cursor: pointer;">Send Another Message</button>
+        </div>
+        <hr>
+        <h2>Email</h2>
+        <p>You can send me an email directly by clicking the link below:</p>
+
+        <p style="font-size: 1.5em; font-weight: bold;">
+            <a href="mailto:benjamin.hill.dev@randomemail.com?subject=Inquiry%20from%20Portfolio%20Website">
+                benjamin.hill.dev@randomemail.com
+            </a>
+        </p>
+
+        <h2>Connect Online</h2>
+        <p>While I'm building out a full social media presence, you can find more of my work here:</p>
+        <ul>
+            <li><a href="#" target="_blank">LinkedIn Profile (Coming Soon)</a></li>
+            <li><a href="https://www.ctrlpaint.com/library/" target="_blank">Digital Art Inspiration</a></li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('sendMessageBtn').addEventListener('click', function() {
+            const form = document.getElementById('contactForm');
+            
+            // Simple validation to ensure fields are filled
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            // 1. Get Values
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            // Get the displayed text of the selected option
+            const priority = document.getElementById('priority').options[document.getElementById('priority').selectedIndex].text; 
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // 2. Format the Display Message
+            const displayContent = 
+                `Name: ${fullName}\n` +
+                `Email: ${email}\n` +
+                `Subject: ${subject}\n` +
+                `Priority: ${priority}\n` +
+                `---\n` +
+                `Message:\n${message}`;
+
+            // 3. Insert the content into the display box
+            document.getElementById('displayMessage').textContent = displayContent;
+
+            // 4. Hide the Form and Show the Confirmation Box
+            form.style.display = 'none';
+            document.getElementById('messageSentBox').style.display = 'block';
+        });
+    </script>
+</body>
+</html>

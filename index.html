@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Benjamin Hill's Portfolio </title>
+    <!-- 1. The frameset setup does not use a <body> tag, but rather the <frameset> tag -->
+</head>
+<frameset cols="25%, 75%">
+    <!-- The left frame for the menu, using the new menu.html -->
+    <frame name="menu" src="menu.html" frameborder="0" scrolling="no">
+    <!-- The right frame for the content, starting with home.html -->
+    <frame name="display" src="home.html" frameborder="0">
+
+    <noframes>
+        <body>
+            <h1>Your browser does not support framesets.</h1>
+            <p>Please use the links below:</p>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="resume.html">Resume & Projects</a></li>
+                <li><a href="contact.html">Contact Me</a></li>
+            </ul>
+        </body>
+    </noframes>
+</frameset>
+</html>
