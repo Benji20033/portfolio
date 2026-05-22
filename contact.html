@@ -3,6 +3,8 @@
 <head>
     <title>Contact Benjamin Hill</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Load a Google Font for nicer text rendering -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Add form-specific styles directly in the head for simplicity and adherence to the task */
         :root {
@@ -96,6 +98,43 @@
             color: #333;
             font-style: italic;
         }
+
+        /* Social icon styles for contact links */
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .social-icons {
+            display: inline-flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            width: 36px;
+            height: 36px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: transform 0.12s ease, background-color 0.12s ease;
+            color: inherit;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-2px);
+            background-color: rgba(0,0,0,0.03);
+        }
+
+        /* SVG sizing */
+        .social-icons svg {
+            width: 20px;
+            height: 20px;
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -146,11 +185,29 @@
         <h2>Email</h2>
         <p>You can send me an email directly by clicking the link below:</p>
 
-        <p style="font-size: 1.5em; font-weight: bold;">
-            <a href="mailto:benjaminhillu@gmail.com?subject=Inquiry%20from%20Portfolio%20Website">
-                benjaminhillu@gmail.com
-            </a>
-        </p>
+        <div class="contact-row">
+            <p style="font-size: 1.5em; font-weight: bold; margin: 0;">
+                <a href="mailto:benjaminhillu@gmail.com?subject=Inquiry%20from%20Portfolio%20Website">
+                    benjaminhillu@gmail.com
+                </a>
+            </p>
+
+            <div class="social-icons" aria-label="Social links">
+                <a href="https://github.com/Benji20033" target="_blank" rel="noopener noreferrer" title="GitHub">
+                    <!-- GitHub icon (inline SVG) -->
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 .5C5.73.5.75 5.48.75 11.75c0 4.86 3.14 8.98 7.5 10.44.55.1.75-.24.75-.53v-1.86c-3.05.66-3.7-1.47-3.7-1.47-.5-1.28-1.22-1.62-1.22-1.62-.99-.68.08-.67.08-.67 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.57 1.19 3.2.91.1-.72.38-1.19.69-1.46-2.44-.28-5-1.22-5-5.43 0-1.2.43-2.17 1.13-2.94-.11-.28-.49-1.42.11-2.97 0 0 .92-.29 3.02 1.12.88-.24 1.82-.36 2.75-.36.94 0 1.87.12 2.75.36 2.1-1.41 3.02-1.12 3.02-1.12.6 1.55.22 2.69.11 2.97.7.77 1.13 1.74 1.13 2.94 0 4.22-2.57 5.15-5.01 5.42.39.34.73 1.02.73 2.05v3.04c0 .29.2.64.76.53 4.36-1.47 7.5-5.58 7.5-10.44C23.25 5.48 18.27.5 12 .5z"/>
+                    </svg>
+                </a>
+
+                <a href="https://www.linkedin.com/in/YOUR-LINKEDIN-ID" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                    <!-- LinkedIn icon (inline SVG) -->
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.45 20.45h-3.6v-5.4c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.07 1.4-2.07 2.86v5.49h-3.6V9h3.46v1.56h.05c.48-.9 1.65-1.85 3.4-1.85 3.63 0 4.3 2.39 4.3 5.49v6.7zM5.34 7.43c-1.16 0-2.1-.94-2.1-2.1 0-1.16.94-2.1 2.1-2.1s2.1.94 2.1 2.1c0 1.16-.94 2.1-2.1 2.1zM7.14 20.45H3.55V9h3.59v11.45z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
 
         <h2>Connect Online</h2>
         <p>While I'm building out a full social media presence, you can find more of my work here:</p>
