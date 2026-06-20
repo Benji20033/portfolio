@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Additional Documents</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="fixed-header">
+        <h1>Additional Documents</h1>
+    </header>
+
+    <div class="content-wrapper header-offset-padding">
+        <h1>Additional Documents</h1>
+        <p>Browse downloadable project files, reports, and supporting documents below.</p>
+
+        <div id="documentsGrid" class="documents-grid"></div>
+    </div>
+
+    <script>
+        const documents = [
+            {
+                title: "Project Management Plan",
+                category: "Project Planning",
+                type: "DOCX",
+                file: "assets/(Benjamin Hill) Project Management Plan.docx",
+                summary: "A hypothetical plan detailing a database project."
+            },
+            {
+                title: "Biography and Career Goals",
+                category: "Personal Development",
+                type: "DOCX",
+                file: "assets/Biography and Career Goals (Benjamin Hill).docx",
+                summary: "A personal overview of my career and personal goals."
+            },
+            {
+                title: "Ethical Case Study",
+                category: "Academic",
+                type: "DOCX",
+                file: "assets/Ethical Case Study (Benjamin Hill).docx",
+                summary: "An alaysis of the use of AI and how it should be governed."
+            },
+            {
+                title: "Event Report",
+                category: "Academic",
+                type: "DOCX",
+                file: "assets/Event Report (Benjamin Hill).docx",
+                summary: "A report covering my virtual meetings."
+            }
+        ];
+
+        const grid = document.getElementById('documentsGrid');
+
+        documents
+            .sort((a, b) => a.title.localeCompare(b.title))
+            .forEach((doc) => {
+                const card = document.createElement('article');
+                card.className = 'document-card';
+                card.innerHTML = `
+                    <div class="document-card-header">
+                        <span class="document-badge">${doc.type}</span>
+                        <span class="document-category">${doc.category}</span>
+                    </div>
+                    <h3>${doc.title}</h3>
+                    <p>${doc.summary}</p>
+                    <a class="document-download-btn" href="${doc.file}" download>
+                        Download
+                    </a>
+                `;
+                grid.appendChild(card);
+            });
+    </script>
+</body>
+</html>
