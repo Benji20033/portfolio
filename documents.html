@@ -33,6 +33,13 @@
                 summary: "A personal overview of my career and personal goals."
             },
             {
+                title: "BSIS Program Assessment",
+                category: "Academic",
+                type: "DOCX",
+                file: "assets/BSIS Program Assessment (Benjamin Hill).docx",
+                summary: "An assessment of the BSIS program and its learning outcomes."
+            },
+            {
                 title: "Ethical Case Study",
                 category: "Academic",
                 type: "DOCX",
@@ -45,6 +52,21 @@
                 type: "DOCX",
                 file: "assets/Event Report (Benjamin Hill).docx",
                 summary: "A report covering my virtual meetings."
+            },
+            {
+                title: "Information Policy & Technology in the News",
+                category: "Academic",
+                type: "DOCX",
+                file: "assets/Information Policy & Technology in the News (Benjamin Hill).docx",
+                summary: "An overview of information policy and technology trends in the news."
+            },
+            {
+                title: "BSIS Reflection Video",
+                category: "Multimedia",
+                type: "VIDEO",
+                file: "https://youtu.be/M7kKv30HWZY",
+                summary: "A video reflection linked from the course content.",
+                external: true
             }
         ];
 
@@ -62,8 +84,8 @@
                     </div>
                     <h3>${doc.title}</h3>
                     <p>${doc.summary}</p>
-                    <a class="document-download-btn" href="${doc.file}" download>
-                        Download
+                    <a class="document-download-btn" href="${doc.file}" ${doc.external ? 'target="_blank" rel="noopener noreferrer"' : 'download'}>
+                        ${doc.external ? 'Open Link' : 'Download'}
                     </a>
                 `;
                 grid.appendChild(card);
